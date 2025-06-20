@@ -13,6 +13,13 @@ function App() {
     useEffect(() => {
         localStorage.setItem("history", JSON.stringify(history));
     }, [history]);
+    useEffect(() => {
+        if (darkMode) {
+            document.body.classList.add('dark');
+        } else {
+            document.body.classList.remove('dark');
+        }
+    }, [darkMode]);
 
     const sayHello = () => {
         if (name.trim()) {
