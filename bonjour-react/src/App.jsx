@@ -5,6 +5,7 @@ function App() {
     const [name, setName] = useState('');
     const [greeting, setGreeting] = useState('');
     const [history, setHistory] = useState([]);
+    const [darkMode, setDarkMode] = useState(false);
 
     const sayHello = () => {
         if (name.trim()) {
@@ -21,7 +22,10 @@ function App() {
     };
 
     return (
-        <div className="container">
+        <div className={`container ${darkMode ? 'dark' : ''}`}>
+            <button onClick={() => setDarkMode(!darkMode)}>
+                {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+            </button>
             <h1>Dis bonjour 👋</h1>
             <input
                 type="text"

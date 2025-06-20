@@ -8,3 +8,11 @@ input, button {
   font-size: 16px;
   margin: 5px;
 }
+.dark {
+  background-color: #222;
+  color: white;
+}
+.dark input, .dark button {
+  background: #444;
+  color: white;
+}
