@@ -1,10 +1,17 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import './App.css';
 
 function App() {
     const [name, setName] = useState('');
     const [greeting, setGreeting] = useState('');
-    const [history, setHistory] = useState([]);
+    const [history, setHistory] = useState(() => {
+        const saved = localStorage.getItem("history");
+        return saved ? JSON.parse(saved) : [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem("history", JSON.stringify(history));
+    }, [history]);
 
     const sayHello = () => {
         if (name.trim()) {
