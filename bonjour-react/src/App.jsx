@@ -8,6 +8,7 @@ function App() {
         const saved = localStorage.getItem("history");
         return saved ? JSON.parse(saved) : [];
     });
+    const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("history", JSON.stringify(history));
@@ -28,7 +29,10 @@ function App() {
     };
 
     return (
-        <div className="container">
+        <div className={`container ${darkMode ? 'dark' : ''}`}>
+            <button onClick={() => setDarkMode(!darkMode)}>
+                {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+            </button>
             <h1>Dis bonjour 👋</h1>
             <input
                 type="text"
