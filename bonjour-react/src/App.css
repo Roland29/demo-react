@@ -1,0 +1,10 @@
+.container {
+  text-align: center;
+  margin-top: 100px;
+  font-family: sans-serif;
+}
+input, button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 5px;
+}
