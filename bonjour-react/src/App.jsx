@@ -21,8 +21,10 @@ function App() {
         }
     }, [darkMode]);
 
-    const sayHello = () => {
+    const sayHello = async () => {
         if (name.trim()) {
+            setGreeting("Chargement...");
+            await new Promise(res => setTimeout(res, 1000)); // simulate delay
             setGreeting(`Bonjour, ${name} !`);
             setHistory((prev) => [...prev, name]);
             setName('');
@@ -30,6 +32,7 @@ function App() {
             setGreeting("Tu n'as pas entré de prénom 😢");
         }
     };
+
 
     const removeName = (index) => {
         setHistory((prev) => prev.filter((_, i) => i !== index));
