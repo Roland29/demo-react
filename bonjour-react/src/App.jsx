@@ -16,6 +16,10 @@ function App() {
         }
     };
 
+    const removeName = (index) => {
+        setHistory((prev) => prev.filter((_, i) => i !== index));
+    };
+
     return (
         <div className="container">
             <h1>Dis bonjour 👋</h1>
@@ -33,7 +37,10 @@ function App() {
                     <h2>Historique</h2>
                     <ul>
                         {history.map((n, i) => (
-                            <li key={i}>{n}</li>
+                            <li key={i}>
+                                {n}
+                                <button onClick={() => removeName(i)}>🗑️</button>
+                            </li>
                         ))}
                     </ul>
                 </>
